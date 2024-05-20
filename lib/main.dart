@@ -1,3 +1,4 @@
+import 'package:apis/Screens/homescreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,57 +12,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter FreeAPI.app',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
+        appBarTheme: const AppBarTheme(centerTitle: true),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       home: const HomePage(title: 'FreeAPI.app'),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
-
-final String title;
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(widget.title),
-      centerTitle: true,
-      ),
-      body: ListView.separated(
-        physics: const BouncingScrollPhysics(),
-        itemCount: 12,
-        separatorBuilder: (context, index) => Divider(color: Colors.grey[300]),
-        itemBuilder: (context, index) => ListTile(
-          leading: Icon(Icons.api_rounded),
-          title: Text("API - ${index+1}"),
-          trailing: Icon(Icons.more_horiz),
-        ),
-      ),
     );
   }
 }
